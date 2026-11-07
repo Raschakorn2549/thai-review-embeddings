@@ -17,3 +17,6 @@ Thumbs.db
 # local notes
 CLAUDE.md
 PLAN.md
+
+# machine-specific setup helpers
+tools/

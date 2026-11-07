@@ -11,6 +11,9 @@ RESULTS_DIR = ROOT / "results"
 FIGURE_DIR = RESULTS_DIR / "figures"
 METRICS_FILE = RESULTS_DIR / "metrics.csv"
 
+REPORT_DIR = ROOT / "report"
+REPORT_FIGURE_DIR = REPORT_DIR / "figures"
+
 DATASET_URL = "https://raw.githubusercontent.com/wongnai/wongnai-corpus/master/review/review_dataset.zip"
 RAW_FILE = RAW_DIR / "w_review_train.csv"
 
@@ -34,6 +37,10 @@ LABEL_COLORS = {
     "positive": "#1baf7a",
 }
 BAR_COLOR = "#2a78d6"
+
+# Thai-capable font shipped with Windows, needed for word labels in figures
+PLOT_FONT = "Leelawadee UI"
+FIGURE_DPI = 200
 
 EMBEDDING_MODEL = "BAAI/bge-m3"
 EMBEDDING_MAX_LENGTH = 512
