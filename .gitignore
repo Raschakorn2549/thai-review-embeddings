@@ -1,0 +1,19 @@
+# data and generated vectors
+data/
+
+# environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# local notes
+CLAUDE.md
+PLAN.md
