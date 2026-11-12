@@ -17,6 +17,7 @@ Thumbs.db
 # local notes
 CLAUDE.md
 PLAN.md
+REPORT_BRIEF.md
 
 # machine-specific setup helpers, except the model mirror script the README points to
 tools/*
