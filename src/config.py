@@ -43,8 +43,46 @@ PLOT_FONT = "Leelawadee UI"
 FIGURE_DPI = 200
 
 EMBEDDING_MODEL = "BAAI/bge-m3"
+EMBEDDING_NAME = "bge-m3"
+EMBEDDING_DIMS = 1024
 EMBEDDING_MAX_LENGTH = 512
 EMBEDDING_BATCH_SIZE = 16
+# Used once if the batch above runs out of VRAM (6 GB card, ~4.6 GB usable)
+EMBEDDING_FALLBACK_BATCH_SIZE = 8
+
+SPLITS = ["train", "val", "test"]
+
+TFIDF_NGRAM_RANGE = (1, 2)
+TFIDF_MIN_DF = 3
+TFIDF_MAX_FEATURES = 50_000
 
 PCA_DIMS = [1024, 512, 256, 128, 64, 32, 16]
 MODELS = ["logreg", "linear_svm", "knn", "lightgbm"]
+
+# Small grids, tuned on val only. LightGBM has a single setting on purpose:
+# a full sweep over num_leaves costs more time than it is worth here.
+MODEL_GRIDS = {
+    "logreg": {"C": [0.1, 1, 10]},
+    "linear_svm": {"C": [0.1, 1, 10]},
+    "knn": {"n_neighbors": [5, 15, 31]},
+    "lightgbm": {"num_leaves": [31]},
+}
+
+PREDICTIONS_FILE = RESULTS_DIR / "predictions_best.parquet"
+EXPLAINED_VARIANCE_FILE = RESULTS_DIR / "pca_explained_variance.npy"
+
+METRICS_COLUMNS = [
+    "feature",
+    "dims",
+    "model",
+    "best_params",
+    "macro_f1",
+    "accuracy",
+    "f1_neg",
+    "f1_neu",
+    "f1_pos",
+    "train_sec",
+    "predict_sec",
+    "vector_mb",
+    "explained_var",
+]
