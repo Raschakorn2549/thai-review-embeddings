@@ -1,5 +1,7 @@
 # Thai Review Sentiment: Embeddings + PCA
 
+*คู่มือย่อภาษาไทยสำหรับคนทำงานกับ repo นี้: [`README.th.md`](README.th.md)*
+
 How well do Thai text embeddings predict restaurant review sentiment, and how far can PCA
 shrink those embeddings before performance drops?
 
