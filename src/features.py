@@ -71,9 +71,12 @@ def id_path(split):
 def load_model():
     from sentence_transformers import SentenceTransformer
 
-    model = SentenceTransformer(
-        config.EMBEDDING_MODEL, model_kwargs={"torch_dtype": "float16"}
-    )
+    # Prefer the locally mirrored copy, since the Hub is unreachable here
+    source = config.EMBEDDING_MODEL
+    if config.LOCAL_MODEL_DIR.exists():
+        source = str(config.LOCAL_MODEL_DIR)
+
+    model = SentenceTransformer(source, model_kwargs={"torch_dtype": "float16"})
     model.max_seq_length = config.EMBEDDING_MAX_LENGTH
     return model
 

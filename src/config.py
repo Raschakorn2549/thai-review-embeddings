@@ -44,6 +44,9 @@ FIGURE_DPI = 200
 
 EMBEDDING_MODEL = "BAAI/bge-m3"
 EMBEDDING_NAME = "bge-m3"
+# huggingface.co is blocked on this machine, so the weights are mirrored here by
+# tools/fetch_bge_m3.py. features.load_model() prefers this folder when it exists.
+LOCAL_MODEL_DIR = DATA_DIR / "models" / "bge-m3"
 EMBEDDING_DIMS = 1024
 EMBEDDING_MAX_LENGTH = 512
 EMBEDDING_BATCH_SIZE = 16
