@@ -59,13 +59,12 @@ TFIDF_MAX_FEATURES = 50_000
 PCA_DIMS = [1024, 512, 256, 128, 64, 32, 16]
 MODELS = ["logreg", "linear_svm", "knn", "lightgbm"]
 
-# Small grids, tuned on val only. LightGBM has a single setting on purpose:
-# a full sweep over num_leaves costs more time than it is worth here.
+# Small grids, tuned on the val split only
 MODEL_GRIDS = {
     "logreg": {"C": [0.1, 1, 10]},
     "linear_svm": {"C": [0.1, 1, 10]},
     "knn": {"n_neighbors": [5, 15, 31]},
-    "lightgbm": {"num_leaves": [31]},
+    "lightgbm": {"num_leaves": [31, 63]},
 }
 
 PREDICTIONS_FILE = RESULTS_DIR / "predictions_best.parquet"
