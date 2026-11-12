@@ -156,7 +156,7 @@ py -3.11 -m venv .venv
 .venv\Scripts\Activate.ps1
 
 # CUDA build of PyTorch, from the official index
-pip install torch --index-url https://download.pytorch.org/whl/cu126
+pip install torch==2.14.1 --index-url https://download.pytorch.org/whl/cu126
 pip install -r requirements.txt
 
 python -c "import torch; print(torch.cuda.is_available())"   # expect True
